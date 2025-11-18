@@ -15,9 +15,16 @@ void BioEnemyShip::Update(const GameTime& gameTime)
 {
 	if (IsActive())
 	{
-		float x = sin(gameTime.GetTotalTime() * Math::PI + GetIndex());
-		x *= GetSpeed() * gameTime.GetElapsedTime() * 1.4f;
-		TranslatePosition(x, GetSpeed() * gameTime.GetElapsedTime());
+		//editing position: trying to change the direction that the ships appear(L -> R)
+		//These edits change the direction from L -> R but I need to change the offset 
+		// so that they start on the left side of the screen rather than at the top.
+
+		//float x = sin(gameTime.GetTotalTime() * Math::PI + GetIndex());
+		float y = sin(gameTime.GetTotalTime() * Math::PI + GetIndex());
+		//x *= GetSpeed() * gameTime.GetElapsedTime() * 1.4f;
+		y *= GetSpeed() * gameTime.GetElapsedTime() * 1.4f;
+		//TranslatePosition(x, GetSpeed() * gameTime.GetElapsedTime());
+		TranslatePosition(GetSpeed() * gameTime.GetElapsedTime(), y);
 
 		if (!IsOnScreen()) Deactivate();
 	}

@@ -3,6 +3,7 @@
 #include "MainMenuScreen.h"
 #include "Level.h"
 #include "Level01.h"
+#include "Level02.h"
 
 GameplayScreen::GameplayScreen(const int levelIndex)
 	: m_levelIndex(levelIndex)
@@ -18,7 +19,8 @@ GameplayScreen::GameplayScreen(const int levelIndex)
 void GameplayScreen::LoadContent(ResourceManager& resourceManager)
 {
 	m_pResourceManager = &resourceManager;
-	LoadLevel(m_levelIndex);
+	// changed the LoadLevel argument so that it will load level 2
+	LoadLevel(m_levelIndex + 1);
 }
 
 void GameplayScreen::LoadLevel(const int levelIndex)
@@ -28,6 +30,8 @@ void GameplayScreen::LoadLevel(const int levelIndex)
 	switch (levelIndex)
 	{
 	case 0: m_pLevel = new Level01(); break;
+	// added level 2 as an loadable option
+	case 1: m_pLevel = new Level02(); break;
 	}
 
 	m_pLevel->SetGameplayScreen(this);

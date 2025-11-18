@@ -69,7 +69,7 @@ void PlayerShip::HandleInput(const InputState& input)
 void PlayerShip::Update(const GameTime& gameTime)
 {
 	// Get the velocity for the direction that the player is trying to go.
-	Vector2 targetVelocity = m_desiredDirection * GetSpeed() * gameTime.GetElapsedTime();
+	Vector2 targetVelocity = m_desiredDirection * GetSpeed() * gameTime.GetElapsedTime() * 5; // Increased speed by 5 to make it noticable
 	// We can't go from 0-100 mph instantly! This line interpolates the velocity for us.
 	m_velocity = Vector2::Lerp(m_velocity, targetVelocity, GetResponsiveness());
 	// Move that direction
