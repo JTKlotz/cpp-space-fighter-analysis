@@ -35,6 +35,9 @@ public:
 		@param startPosition The starting position of the player ship. */
 	virtual void Initialize(Level* pLevel, Vector2& startPosition);
 
+
+	virtual void Hit(const float damage);
+
 	/** @brief Gets the half dimensions of the player ship.
 		@return Returns the half dimensions of the player ship. */
 	virtual Vector2 GetHalfDimensions() const;

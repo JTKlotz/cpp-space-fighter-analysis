@@ -111,6 +111,14 @@ void PlayerShip::Update(const GameTime& gameTime)
 	Ship::Update(gameTime);
 }
 
+// displays message to the console when the player's ship is hit
+void PlayerShip::Hit(const float damage)
+{
+	Ship::Hit(damage);
+
+	std::cout << "Player's ship was destroyed \n";
+}
+
 void PlayerShip::Draw(SpriteBatch& spriteBatch)
 {
 	if (IsActive())

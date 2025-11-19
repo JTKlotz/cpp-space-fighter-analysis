@@ -43,4 +43,7 @@ void EnemyShip::Initialize(const Vector2 position, const double delaySeconds)
 void EnemyShip::Hit(const float damage)
 {
 	Ship::Hit(damage);
+	
+	// display message for when the enemy ship is hit
+	std::cout << "Enemy ship was destroyed \n";
 }
